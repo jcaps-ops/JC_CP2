@@ -1,0 +1,59 @@
+#jc 2nd finacal caluclator
+
+
+#Here are the varibles across areas
+
+
+#Player answer checker functions
+#Def playerchecker(ply_input)
+def playerchecker(options):
+    #Check if the players input is good
+    works = True
+    while works:
+        ply_input = input("Enter here:")
+        works = False
+        if ply_input.isnumeric() == True:
+            works = True
+        if options != 0:
+            if ply_input < options:
+                works = True
+    return ply_input    
+            
+
+    
+#Def goal_save()
+def goal_save():
+    #ask player amount want to save
+    print("How much do you want to save")
+    #Check if it works
+    save = playerchecker(0)
+    #Ask for amount put in per time
+    print("How much will you add to at a time")
+    #Check if it works
+    additon = playerchecker(0)
+    #Asks what is the time input
+    print("do you want to add it 1.monthly or 2.yearly")
+    #Check if it works
+    timers = playerchecker(2)
+    #show amount of time it would take
+    answer = save/additon
+    print(f"It will take {answer} {timers} to save {save}")
+
+#Def goal_save()
+def per_calc():
+    #ask player amount want to save
+    print("How much is your starting amount")
+    #Check if it works
+    save = playerchecker(0)
+    #Ask for amount put in per time
+    print("How much is your interest")
+    #Check if it works
+    percent = playerchecker(0)
+    percent = percent/100 + 1
+     #Asks what is the time input
+    print("How many years to calculate")
+    time = playerchecker(0)
+    for x in time:
+        save = save * percent
+#Loop that is the main menu to go into the functions
+per_calc()
