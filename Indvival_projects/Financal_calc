@@ -11,12 +11,14 @@ def playerchecker(options):
     works = True
     while works:
         ply_input = input("Enter here:")
-        works = False
         if ply_input.isnumeric() == True:
-            works = True
-        if options != 0:
-            if ply_input < options:
-                works = True
+            ply_input = int(ply_input)
+            works = False
+            if options != 0:
+                if ply_input <= options:
+                    works = False
+                else:
+                    works = True
     return ply_input    
             
 
@@ -35,6 +37,10 @@ def goal_save():
     print("do you want to add it 1.monthly or 2.yearly")
     #Check if it works
     timers = playerchecker(2)
+    if timers == 1:
+        timers = "Month"
+    if timers == 2:
+        timers = "Year"
     #show amount of time it would take
     answer = save/additon
     print(f"It will take {answer} {timers} to save {save}")
@@ -53,7 +59,72 @@ def per_calc():
      #Asks what is the time input
     print("How many years to calculate")
     time = playerchecker(0)
-    for x in time:
+    for x in range(0,time):
         save = save * percent
+    print(f"Your total will be {save}")
 #Loop that is the main menu to go into the functions
-per_calc()
+#Make a function which does it budget
+def budgets():
+# make a dictionaries with the catagories
+    catagories = {}
+#Asks for the amount monthly earned 
+    print("How much is your monthly eanings")
+    save = playerchecker(0)
+#Asks the number of catagories
+    print("How many Catagories")
+    cat_num = playerchecker(0)
+    total = 0
+    for x in range (0,cat_num):
+#Aks for there names
+        print("What is a catagory")
+        cat_name = input("Enter here:")
+#asks for the amount of each catagories
+        print("What percent is this catagory")
+        Cat_value = playerchecker(0)
+        while Cat_value + total > 100:
+            print("What percent is this catagory")
+            Cat_value = playerchecker(0)
+        total = Cat_value + total
+        catagories[cat_name] = Cat_value/100 + 1
+    for x,y in catagories.items():
+        print(f"{x}: {save/y}")    
+
+#Then displays them
+#Function for both sales and tip
+def sales_tip():
+#Get what the user wants to do
+    print("do you want 1.Sales or 2.Tip")
+    calc = playerchecker(2)
+    #Creat the inner function
+    def sl_tp_calc(calc):
+        print("How much is your bill")
+        num = playerchecker(0)
+        print("How much is the percentage")
+        percent = playerchecker(0)
+        percent = percent/100 + 1
+        if calc == 1:
+            num = num / percent
+        else:
+            num = num* percent
+        
+        return num
+    num = sl_tp_calc(calc)
+    print(f"your total is {num}")
+
+#Loop that is the main menu to go into the functions
+playing = True
+while playing == True:
+    print("do you want 1.Sales or Tip 2.Budget 3.savings 4.compound interest 5.Exit")
+    choice = playerchecker(5)
+    if choice == 1:
+        sales_tip()
+    if choice == 2:
+        budgets()
+    if choice == 3:
+        goal_save()
+    if choice == 4:
+        per_calc()
+    if choice == 5:
+        playing = False    
+
+
