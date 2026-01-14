@@ -104,6 +104,7 @@ def sales_tip():
         percent = percent/100 + 1
         if calc == 1:
             num = num / percent
+
         else:
             num = num* percent
         
