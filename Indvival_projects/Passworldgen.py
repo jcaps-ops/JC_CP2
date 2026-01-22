@@ -22,22 +22,33 @@ def pass_gen(req):
     leng = playerchecker(0)
     #Based on if it is in the requirments then randomly generate a password for it
     req_len = len(req)
-    string_an = ""
-    for x in range(0,leng):
-        #Generates a random thing from the list
-        req_ran = req[random.randrange(0,req_len)]
-        #Then will generate a random one form this list
-        if req_ran == "Low":
-            ran = random.randrange(97,122)
-        if req_ran == "Up":
-            ran = random.randrange(65,90)
-        if req_ran == "num":
-            ran = random.randrange(48,57)
-        if req_ran == "char":
-            ran = random.randrange(33,47)
-        ran = chr(ran)
-        string_an = string_an + ran
-    print(f"This is your new password {string_an}")
+    poss_pass = []
+
+    for y in range(0,4):
+        string_an = ""
+        for x in range(0,leng):
+            
+            #Generates a random thing from the list
+            req_ran = req[random.randrange(0,req_len)]
+            #Then will generate a random one form this list
+            if req_ran == "Low":
+                ran = random.randrange(97,122)
+            if req_ran == "Up":
+                ran = random.randrange(65,90)
+            if req_ran == "num":
+                ran = random.randrange(48,57)
+            if req_ran == "char":
+                ran = random.randrange(33,47)
+            ran = chr(ran)
+            string_an = string_an + ran
+        poss_pass.append(string_an)
+    count = 0
+    #Just prints the list 
+    print("These are the possible passwords")
+    for key in poss_pass:
+        count += 1
+        print(f"{count},{key}")
+   
     print("Do you want to generate another password 1.Yes 2.No")
     con = playerchecker(2)
     if con == 1:
