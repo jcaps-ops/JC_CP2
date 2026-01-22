@@ -24,8 +24,9 @@ def pass_gen(req):
     req_len = len(req)
     string_an = ""
     for x in range(0,leng):
+        #Generates a random thing from the list
         req_ran = req[random.randrange(0,req_len)]
-        print(req_ran)
+        #Then will generate a random one form this list
         if req_ran == "Low":
             ran = random.randrange(97,122)
         if req_ran == "Up":
@@ -34,8 +35,13 @@ def pass_gen(req):
             ran = random.randrange(48,57)
         if req_ran == "char":
             ran = random.randrange(33,47)
-        string_an =+ chr(ran)
+        ran = chr(ran)
+        string_an = string_an + ran
     print(f"This is your new password {string_an}")
+    print("Do you want to generate another password 1.Yes 2.No")
+    con = playerchecker(2)
+    if con == 1:
+        mainmenu()
 #A function that despays and get what they want to add
 def mainmenu():
     #Creats varablies needed 
