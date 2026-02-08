@@ -6,13 +6,13 @@ def fancy_print(count,line):
 def main():
     catagories = ["None","None","None","None","None"]
     while True:
-        ply_answer = input("What do you want to do (1,Show movie list 2.Search)")
+        ply_answer = input("What do you want to do (1,Show full movie list 2.Search functions)")
         if ply_answer == "1":
             return "1",catagories
         if ply_answer == "2":
             print(F"Catagories list:1, genres:{catagories[0]} 2, Actors:{catagories[1]}")
-            print(F"Catagories list:3, Length:{catagories[2]} 4, Director:{catagories[1]}")
-            search = input("search by (1.Genre 2,Actor 3,Length 6.Search)")
+            print(F"Catagories list:3, Length:{catagories[2]} 4, Director:{catagories[3]}")
+            search = input("search by (1.Genre 2,Actor 3,Length 4,Director 5,Clear search 6.Search)")
             if search == "1":
                 cat_add = input("What Genre")
                 catagories[0] = cat_add.capitalize()
