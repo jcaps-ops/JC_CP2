@@ -28,10 +28,12 @@ with open('Indvival_projects\Movies list - Sheet1.csv', mode ='r')as file:
         fancy_print(count,lines)
         time.sleep(0.1)
   if player_action[0] == "2":
-      for lines in csvFile:
-        for x in lines:
-            for y in player_action[1]:
-                x = x.split("/")
-                if y in x:
-                    print(lines)
-                    time.sleep(0.1)
+      for w in player_action[1]:
+        print(w)
+        for lines in csvFile:
+            for x in lines:
+                for y in player_action[1]:
+                    x = x.split("/")
+                    if y in x:
+                        print(lines)
+                        time.sleep(0.1)
