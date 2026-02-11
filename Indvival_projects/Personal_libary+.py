@@ -2,38 +2,53 @@
 import csv
 
 def Libary_writer(action):
-    with open("Indvival_projects\Libary.csv", "r+", newline = "") as csvfile:
+
         if action == 1:
-            libary = []
-            for line in csvfile:
-                libary.append(line.strip())
-            return libary
+            readfill(1)
         if action == 2:
+            readfill(2)   
+        if action == 3:
+           libary = readfill(3)
+           with open("Indvival_projects\Libary.csv", "w", newline = "") as csvfile:
             fieldnames = ["Title","Creator","Year","Genre"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            csvfile.truncate(0)
+        if action == 4:
+            readfill(4)
 
-            Book_name = input("What book do you want to add to the libary:")
-            #Asks for the author of the book
-            Book_author = input("What is the authors name:")
-            Book_year = input("What is the year the book was made:")
-            Book_genre = input("What is the genre of the book:")
-            addition = {"Title":Book_name,"Creator":Book_author,"Year":Book_year,"Genre":Book_genre}
-            #writer.writerow(fieldnames)
-            writer.writerow(addition)
-        if action == 3:
-           print("Do you want to 1.Clear or 2.slective delete")
-           option = playerchecker(2)
-           print(option)
-           if option == "1":
-               csvfile.truncate(0)
-           elif option == "2":
-               libary = []
-               for line in csvfile:
-                    libary.append(line.strip())
-                    print(line)
-               Book_name = input("What book do you want to search for in the libary:")
-               index = libary.index(Book_name)
-               libary.pop(index)
+def readfill(action):
+     with open("Indvival_projects\Libary.csv", "r+", newline = "") as csvfile:
+                if action == 1:
+                    libary = []
+                    for line in csvfile:
+                        libary.append(line.strip())
+                    return libary
+                if action == 2:
+                    fieldnames = ["Title","Creator","Year","Genre"]
+                    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
+                    Book_name = input("What book do you want to add to the libary:")
+                    #Asks for the author of the book
+                    Book_author = input("What is the authors name:")
+                    Book_year = input("What is the year the book was made:")
+                    Book_genre = input("What is the genre of the book:")
+                    addition = {"Title":Book_name,"Creator":Book_author,"Year":Book_year,"Genre":Book_genre}
+                    #writer.writerow(fieldnames)
+                    writer.writerow(addition)
+                if action == 3:
+                    libary = []
+                    for line in csvfile:
+                        libary.append(line.strip())
+                        print(libary)
+                    return(libary)
+                if action == 4:
+                    for line in csvfile:
+                        print(line)
+                if action == 5:
+                    for line in csvfile:
+                        print(line)
+                
+
 
 def playerchecker(options):
     #Check if the players input is good
@@ -85,7 +100,7 @@ def menu(libary):
         if answer == 1:
             Libary_writer(2)
         if answer == 2:
-            veiw_lib(libary)
+            Libary_writer(4)
         if answer == 3:
             Libary_writer(3)
         if answer == 4:
