@@ -15,30 +15,38 @@ def Libary_writer(action):
             csvfile.truncate(0)
         if action == 4:
             readfill(4)
+        if action == 5:
+            readfill(6)
 
 def readfill(action):
      with open("Indvival_projects\Libary.csv", "r+", newline = "") as csvfile:
                 if action == 1:
                     libary = []
                     for line in csvfile:
-                        libary.append(line.strip())
+                        libary.append(line)
                     return libary
                 if action == 2:
-                    fieldnames = ["Title","Creator","Year","Genre"]
+                    fieldnames = ["Title","Creator","Year",'Genre']
                     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-
+                    libary = []
+                    for line in csvfile:
+                        print(line)
+                        libary.append(line)
                     Book_name = input("What book do you want to add to the libary:")
                     #Asks for the author of the book
                     Book_author = input("What is the authors name:")
                     Book_year = input("What is the year the book was made:")
                     Book_genre = input("What is the genre of the book:")
                     addition = {"Title":Book_name,"Creator":Book_author,"Year":Book_year,"Genre":Book_genre}
+                    libary.append(addition)
                     #writer.writerow(fieldnames)
-                    writer.writerow(addition)
+                    print(libary)
+                    writer.writeheader()
+                    writer.writerow(libary)
                 if action == 3:
                     libary = []
                     for line in csvfile:
-                        libary.append(line.strip())
+                        libary.append(line)
                         print(libary)
                     return(libary)
                 if action == 4:
@@ -47,7 +55,13 @@ def readfill(action):
                 if action == 5:
                     for line in csvfile:
                         print(line)
-                
+                if action == 6:
+                    Look_for_book = input("What is the name of the book your looking for")
+                    for line in csvfile:
+                        print(line)
+                        print(line[0])
+                        if line[0] == Look_for_book:
+                            print(line)
 
 
 def playerchecker(options):
@@ -104,7 +118,7 @@ def menu(libary):
         if answer == 3:
             Libary_writer(3)
         if answer == 4:
-            search(libary)
+            Libary_writer(5)
         if answer == 5:
             playering = False
 
