@@ -7,7 +7,6 @@ def word_counter(Good_friday):
             for x in document:
                 print(x)
                 doc += x
-            print(doc)
             return(doc)
     except:
         print("That file does not work")
