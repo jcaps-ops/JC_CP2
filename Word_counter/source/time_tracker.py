@@ -1,7 +1,7 @@
 import time
 import datetime
 
-
+#This just tracks the time using what Geeks for geeks told me to do
 def get_time():
     t = datetime.datetime.now()
     t = str(t)
