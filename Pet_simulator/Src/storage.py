@@ -1,5 +1,4 @@
 import csv
-
 def StorageSave(currentCreature):
 
     with open("Pet_simulator/Documentation/pet_info.csv", "a", newline = "") as csvfile:
@@ -25,6 +24,41 @@ def storageDisplay():
             name = []
             name = line.split(",")
             print(f"{count}:Name:{name[0]},Creature Type:{name[1]}")
+def storageDeletion(Desired):
+    wanted = []
+    with open("Pet_simulator/Documentation/pet_info.csv", "r", newline = "") as csvfile:
+        for line in csvfile:
+            name = []
+            name = line.split(",")
+            if name[0] == Desired:
+                pass
+            else:
+                temp_wanted = []
+                temp_wanted.append(name[0])
+                temp_wanted.append(name[1])
+                temp_wanted.append(name[2])
+                temp_wanted.append(name[3])
+                temp_wanted.append(name[4])
+                temp_wanted.append(name[5])
+                temp_wanted.append(name[6])
+                temp_wanted.append(name[7])
+                temp_wanted.append(name[8])
+                temp_9 = int(name[9])
+                temp_wanted.append(temp_9)
+                wanted.append(temp_wanted)
+    with open("Pet_simulator/Documentation/pet_info.csv", "w", newline = "") as csvfile:
+        fieldnames = ["name","species","age","hunger","happiness","energy","timer","days","living","lifespan"]
+        writer = csv.writer(csvfile)
+
+    #writer.writerow(fieldnames)
+        print(wanted)
+        writer.writerows(wanted)
+def storagecounter():
+    count = 0
+    with open("Pet_simulator/Documentation/pet_info.csv", "r", newline = "") as csvfile:
+        for line in csvfile:
+            count += 1
+        return(count)
 
         
 """

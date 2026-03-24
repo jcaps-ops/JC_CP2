@@ -1,8 +1,8 @@
 import random
 class creature:
     def __init__(self, name, species, age, hunger,happiness,energy,timer,days,living,lifespan):
-        self.name = name.capitalize()
-        self.species = species.capitalize()
+        self.name = name
+        self.species = species
         self.age = age
         self.hunger = hunger
         self.happiness = happiness
@@ -181,7 +181,9 @@ def Genisis():
     creatureName = input("Enter here:")
     print("What type of creature do you want")
     creatureType = input("enter here:")
-    temp_creature_stats = [creatureName,creatureType,0,10,10,10,0,0,True,random.randrange(3,21)]
+    creatureName = creatureName.capitalize()
+    creatureType = creatureType.capitalize()
+    temp_creature_stats = [creatureName,creatureType,0,10,10,10,0,0,True,int(random.randrange(3,21))]
     return temp_creature_stats
 
 
