@@ -1,8 +1,8 @@
 import random
 class creature:
     def __init__(self, name, species, age, hunger,happiness,energy,timer,days,living,lifespan):
-        self.name = name.capitalize()
-        self.species = species.capitalize()
+        self.name = name
+        self.species = species
         self.age = age
         self.hunger = hunger
         self.happiness = happiness
@@ -175,25 +175,13 @@ class creature:
         self.death()
         self.regulations()
 
-def main_menu():
-    answer = True
-    while answer == True:
-        ply_repon = input(f"[1] Feed Pet\n[2] Play with Pet\n[3] Put Pet to Sleep\n[4] Check Status\n[5] Pet Management\n[6] Save Game\n[7] Load Game\n[8] Quit\n Which option:")
-        if ply_repon == "1":
-            doug.eat(1)
-        elif ply_repon == "2":
-            doug.play(1)
-        elif ply_repon == "3":
-            doug.sleep()
-            input("")
-        elif ply_repon == "4":
-            print(doug.stat_screen())
-            input("")
-        
-        
 
-doug = creature("Doug","Human",23,8,10,10,0,0,True,24)
-main_menu()
-
-
-
+def Genisis():
+    print("Give your creature a name")
+    creatureName = input("Enter here:")
+    print("What type of creature do you want")
+    creatureType = input("enter here:")
+    creatureName = creatureName.capitalize()
+    creatureType = creatureType.capitalize()
+    temp_creature_stats = [creatureName,creatureType,0,10,10,10,0,0,True,int(random.randrange(3,21))]
+    return temp_creature_stats
