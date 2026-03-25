@@ -70,4 +70,8 @@ current = StorageLoad("Doug")
 print(current)
 """
 
+<<<<<<< HEAD
 "storageDisplay()"
+=======
+"storageDisplay()"
+>>>>>>> 9ca2de12eddca2b939953122848d7fc3c52f5552
