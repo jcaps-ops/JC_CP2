@@ -26,7 +26,7 @@ class Book:
                         tempIndex_org = self.students.index(x)
                 tempIndex_new = self.students.index(duoble)
                 self.students.insert(tempIndex_org,duoble)
-                self.students.pop(tempIndex_org-1)
+                self.students.pop(tempIndex_org-2)
                 self.students.pop(tempIndex_new)
                 """
                     self.students.pop(tempIndex_org+1)
@@ -74,13 +74,6 @@ class student:
         
 
 book1 = Book("Book1")
-Currentstudent = student("john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)])
-book1.add_student(Currentstudent.name,Currentstudent.id,Currentstudent.grades,Currentstudent.avargeGrade,Currentstudent.letter)
-book1.display_students()
-Currentstudent = student("Amy",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)])
-book1.add_student(Currentstudent.name,Currentstudent.id,Currentstudent.grades,Currentstudent.avargeGrade,Currentstudent.letter)
-book1.update()
-book1.display_students()
 Currentstudent = student("john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)])
 book1.add_student(Currentstudent.name,Currentstudent.id,Currentstudent.grades,Currentstudent.avargeGrade,Currentstudent.letter)
 book1.update()
