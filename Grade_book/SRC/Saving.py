@@ -1,17 +1,21 @@
 import csv
-from Booking import *
-def StorageSave(BookName,students):
+import random
+def StorageSave(students):
 
     with open("Grade_book/Documenation/Student_Storgae.csv", "w", newline = "") as csvfile:
-        fieldnames = ["name","species","age","hunger","happiness","energy","timer","days","living","lifespan"]
         writer = csv.writer(csvfile)
-
     #writer.writerow(fieldnames)
-        writer.writerows([BookName],students)
+        writer.writerows(students)
 
-def StorageLoad(bookSave):
+def StorageLoad():
    with open("Grade_book/Documenation/Student_Storgae.csv", "r", newline = "") as csvfile:
+        temp = []
         for line in csvfile:
+            print(line[0])
+            temp.append[line]
+        return line
+            
+
             
     #writer.writerow(fieldnames)
 
@@ -25,3 +29,6 @@ print(current)
 """
 
 "storageDisplay()"
+
+StorageSave([["john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)]],["john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)]]])
+print(StorageLoad())
