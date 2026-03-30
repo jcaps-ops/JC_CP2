@@ -29,10 +29,11 @@ class Book:
                 self.students[tempIndex_org-1] = duoble
                 self.students.pop(tempIndex_new)
                 
-                """
-                    self.students.pop(tempIndex_org+1)
-                    self.students.pop(tempIndex_new)
-                """
+    def finder(self,finderID):
+          for x in self.students:
+               if x[1] == finderID:
+                    return x
+               
                 
 
          
