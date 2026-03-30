@@ -44,6 +44,7 @@ class student:
         self.grades = grades
         tempValue = 0
         for y in self.grades:
+                print(y)
                 tempValue += y
         self.avargeGrade = y/len(grades)
         if self.avargeGrade > 90:
@@ -74,13 +75,4 @@ class student:
              self.letter = "F"
         
 
-book1 = Book("Book1")
-Currentstudent = student("john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)])
-book1.add_student(Currentstudent.name,Currentstudent.id,Currentstudent.grades,Currentstudent.avargeGrade,Currentstudent.letter)
-book1.display_students()
-Currentstudent = student("amy",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)])
-book1.add_student(Currentstudent.name,Currentstudent.id,Currentstudent.grades,Currentstudent.avargeGrade,Currentstudent.letter)
-Currentstudent = student("john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)])
-book1.add_student(Currentstudent.name,Currentstudent.id,Currentstudent.grades,Currentstudent.avargeGrade,Currentstudent.letter)
-book1.update()
-book1.display_students()
+

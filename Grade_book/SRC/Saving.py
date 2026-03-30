@@ -9,11 +9,12 @@ def StorageSave(students):
 
 def StorageLoad():
    with open("Grade_book/Documenation/Student_Storgae.csv", "r", newline = "") as csvfile:
-        temp = []
+        tempList = []
         for line in csvfile:
-            print(line[0])
-            temp.append[line]
-        return line
+            linesplit = line.split(",")
+            linesplit[2] = linesplit[2] +"," + linesplit[3]
+            tempList.append(linesplit)
+        return tempList
             
 
             
@@ -29,6 +30,3 @@ print(current)
 """
 
 "storageDisplay()"
-
-StorageSave([["john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)]],["john",random.randrange(0,2000),[random.randrange(0,100),random.randrange(0,100)]]])
-print(StorageLoad())
