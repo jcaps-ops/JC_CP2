@@ -1,6 +1,10 @@
 import random
 import time
+from faker import Faker
+fake = Faker()
 def race(horses):
+    for x in horses:
+        x[2] = x[4]
     racing = True
     while racing == True:
         for x in horses:
@@ -19,9 +23,15 @@ def race(horses):
         else:
             x[6] = x[6] + 1
         x[3] = 0
+        x[2] = x[4]
     return horses
 
-
+def horsecreation(count,maxspeed,maxstamina,horses):
+    for x in range(0,count):
+        temp = [fake.name(),random.randrange(maxspeed-5,maxspeed),0,0,random.randrange(maxstamina-5,maxstamina),0,0]
+        horses.append(temp)
+        print(temp)
+    return horses
 
 
 def raceturn(horse):
@@ -35,8 +45,10 @@ def raceturn(horse):
 
 
 #Example horse [Name,Speed,stanmina,meter,maxstamina,wins,loses]
-
-horses = [["Dasher",5,7,0,7,0,0],["Prancer",7,5,0,5,0,0]]
+horses = horsecreation(5,10,10,[])
+#horses = [["Dasher",5,7,0,7,0,0],["Prancer",7,5,0,5,0,0]]
 for y in range(0,5):
     horses = race(horses)
+    for x in horses:
+        print(x)
     input("")
