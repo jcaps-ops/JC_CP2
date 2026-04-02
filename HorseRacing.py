@@ -28,7 +28,13 @@ def race(horses):
 
 def horsecreation(count,maxspeed,maxstamina,horses):
     for x in range(0,count):
-        temp = [fake.name(),random.randrange(maxspeed-5,maxspeed),0,0,random.randrange(maxstamina-5,maxstamina),0,0]
+        first = fake.catch_phrase()
+        first = first.split(" ")
+        first = first[0]
+        second = fake.name()
+        second = second.split(" ")
+        second = second[1]
+        temp = [first + " " + second,random.randrange(maxspeed-5,maxspeed),0,0,random.randrange(maxstamina-5,maxstamina),0,0]
         horses.append(temp)
         print(temp)
     return horses
