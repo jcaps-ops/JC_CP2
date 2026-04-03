@@ -46,7 +46,7 @@ def horsecreation(count,maxspeed,maxstamina,horses):
         second = second.split(" ")
         second = second[1]
         skill = skillCreations()
-        temp = [first + " " + second,random.randrange(maxspeed-5,maxspeed),0,0,random.randrange(maxstamina-5,maxstamina),0,0,skill[0],skill[1],skill[2]]
+        temp = [first + " " + second,random.randrange(maxspeed-5,maxspeed),0,0,random.randrange(maxstamina-5,maxstamina),0,0,skill[0],skill[1],skill[2],False]
         horses.append(temp)
         print(temp)
     return horses
@@ -54,25 +54,27 @@ def skillCreations():
     skillactTypes = ["Start","Middle","End"]
     skilleffTypes = ["Speed","Max stamina","Stamina","Meter"]
     skillactTypes1 = skillactTypes[random.randrange(0,2)]
-    skillactTypes1 = skillactTypes[random.randrange(0,3)]
-    rand_Prefix = fake.catch_phrase()
-    rand_Prefix.split(" ")
-    rand_Prefix_1 = rand_Prefix[0]
-    rand_color = fake.color()
+    skilleffTypes1 = skilleffTypes[random.randrange(0,3)]
+    #rand_Prefix = fake.catch_phrase()
+    #print(rand_Prefix)
+    #rand_Prefix.split(" ")
+    #rand_Prefix_1 = rand_Prefix[0]
+    #print(rand_Prefix_1)
+    rand_color = fake.color_name()
     randplace = fake.city()
     effect_name = ''
-    if skillactTypes1 == "speed" or skillactTypes == "Meter":
+    if skilleffTypes1 == "speed" or skilleffTypes1 == "Meter":
         effect_name = "Dash"
-    elif skillactTypes == "Max stamina":
+    elif skilleffTypes1 == "Max stamina":
         effect_name = "Improvement"
-    elif skillactTypes == "Stamina":
+    elif skilleffTypes1 == "Stamina":
         effect_name = "Recovery"
     
-    skill_name = rand_Prefix_1 + " " + rand_color + "" + randplace + effect_name
-    return [skillactTypes,skilleffTypes,skill_name]
+    skill_name = rand_color + " " + randplace + " "+ effect_name
+    return [skillactTypes1,skilleffTypes1,skill_name]
 
 
-#Example horse [Name,Speed,stanmina,meter,maxstamina,wins,loses,Skill activation,Skill effect, Skill name]
+#Example horse [Name,Speed,stanmina,meter,maxstamina,wins,loses,Skill activation,Skill effect, Skill name,Has activated skill]
 horses = horsecreation(5,10,10,[])
 #horses = [["Dasher",5,7,0,7,0,0],["Prancer",7,5,0,5,0,0]]
 skillCreations()
