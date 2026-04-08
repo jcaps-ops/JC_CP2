@@ -10,6 +10,6 @@ root.maxsize(1500,500)
 root.geometry("1200x400+100+100")
 
 root.count = 0
-image = PhotoImage(file="gfg.png")
+#image = PhotoImage(file="/workspaces/JC_CP2/Fnaf Cameras/Images/download.png")
 btn = tk.Button(root, )
 btn.place(relx=.52, rely=0.4, anchor="n")
