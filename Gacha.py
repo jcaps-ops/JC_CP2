@@ -12,6 +12,7 @@ def card_draw(cards,Strength):
             cards_used.append(y)
         if y == "Fire blaze":
             damage += 5
+            damage += Strength
             cards_used.append(y)
         if y == "Fire dance":
             Strength += 1
@@ -21,6 +22,7 @@ def card_draw(cards,Strength):
 def combat(Troops,Enemeies):
     while True:
         if len(Troops) > 0:
+
             for x in Troops:
                 if x[1] <= 0:
                     Troops.pop(Troops.index(x))
@@ -32,13 +34,15 @@ def combat(Troops,Enemeies):
                 dam = card_draw_var[1]
                 x[3] = card_draw_var[2]
                 cards_used = card_draw_var[3]
-                target_rand = random.randrange(0,len(Enemeies))
-                target = Enemeies[target_rand]
-                target[1] = target[1] - dam
-                print(f"{x[0]} used \n{cards_used[0]},{cards_used[1]},{cards_used[2]}\n Dealing {dam} to {target[0]} leaving them with {target[1]} hp")
-                input("")
+                if len(Enemeies) > 0:
+                    target_rand = random.randrange(0,len(Enemeies))
+                    target = Enemeies[target_rand]
+                    target[1] = target[1] - dam
+                    print(f"{x[0]} used \n{cards_used[0]},{cards_used[1]},{cards_used[2]}\n Dealing {dam} to {target[0]} leaving them with {target[1]} hp")
+                    input("")
+        else:
+            return Troops,Enemeies
         if len(Enemeies) > 0:
-            print(len(Enemeies))
             for x in Enemeies:
                 if x[1] <= 0:
                     Enemeies.pop(Enemeies.index(x))
@@ -50,15 +54,23 @@ def combat(Troops,Enemeies):
                 dam = card_draw_var[1]
                 x[3] = card_draw_var[2]
                 cards_used = card_draw_var[3]
-                target_rand = random.randrange(0,len(Troops))
-                target = Troops[target_rand]
-                target[1] = target[1] - dam
-                print(f"{x[0]} used \n{cards_used[0]},{cards_used[1]},{cards_used[2]}\n Dealing {dam} to {target[0]} leaving them with {target[1]} hp")
-                input("")
-
+                if len(Troops) > 0:
+                    target_rand = random.randrange(0,len(Troops))
+                    target = Troops[target_rand]
+                    target[1] = target[1] - dam
+                    print(f"{x[0]} used \n{cards_used[0]},{cards_used[1]},{cards_used[2]}\n Dealing {dam} to {target[0]} leaving them with {target[1]} hp")
+                    input("")
+        else:
+            return Troops,Enemeies
 #Troop example ["Name", "Health","Tokens=[]","Strength","Cards = []","Return values"]
-cards1 = ["Basic","Basic","Basic","Basic","Fire blaze"]
+cards1 = ["Fire dance","Fire dance","Basic","Basic","Fire blaze","Fire blaze"]
+cards2 = ["Basic","Basic","Basic"] 
 Troops = [["Greg", 20, [], 1,cards1,[]]]
-enemies = [["creature", 10, [], 1,cards1],["creature", 10, [], 1,cards1]]
+enemies = [["creature", 10, [], 1,cards2],["creature", 10, [], 1,cards2]]
+while True:
+    combat(Troops,enemies)
+    print("WAVE DONE")
+    enemies = [["creature", 10, [], 1,cards2],["creature", 10, [], 1,cards2]]
 
-combat(Troops,enemies)
+    if Troops == []:
+        break
